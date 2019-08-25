@@ -28,8 +28,11 @@ function setup() {
     setNewColor();
 }
 
-function windowResized() {
-    //centerCanvas();
+function windowResized() {    
+    c.style('position', 'relative');
+    c.style('display', 'inline-block');
+    c.style('top','0');
+    centerCanvas();
 }
 
 function centerCanvas() {
