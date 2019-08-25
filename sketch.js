@@ -10,8 +10,9 @@ let start = false;
 let lineColor;
 
 function setup() {
-    c = createCanvas(windowWidth, 500);
-    c.parent("header-top");
+    c = createCanvas(windowWidth, 500);    
+    var elt = document.getElementById('header');
+    c.parent(elt);
     centerCanvas();
     frameRate(120);
     const skip = 8;
