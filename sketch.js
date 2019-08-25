@@ -13,10 +13,10 @@ function setup() {
     c = createCanvas(600, 400);
     frameRate(120);
     background(100);
-      for (let i = 0; i < drawing.length; i += skip) {
-        x.push(drawing[i].x);
-        y.push(drawing[i].y);
-      }
+    for (let i = 0; i < drawing.length; i += skip) {
+        const c = new Complex(drawing[i].x, drawing[i].y);
+        x.push(c);
+    }
     console.log(logoPath);
     fourierT = dft(logoPath);
     console.log(fourierT);
