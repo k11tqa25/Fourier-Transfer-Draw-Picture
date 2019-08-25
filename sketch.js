@@ -1,4 +1,6 @@
 /*jshint esversion: 6 */
+let c;
+let file = "";
 let time = 0;
 let startOverCount = 0;
 let logoPath = [];
@@ -8,21 +10,24 @@ let x = [];
 let start = false;
 let lineColor;
 
+function preload() {
+    file = loadStrings('./logo.txt');
+}
+
 function setup() {
-   createCanvas(800, 600);
-   frameRate(120);
-   background(255);
-   const skip = 8;
-   for (let i = 0; i < drawing.length; i += skip) {
-     const c = new Complex(drawing[i].x, drawing[i].y);
-     logoPath.push(c);
-   }
-   console.log(logoPath);
-   fourierT = dft(logoPath);
-   fourierT.sort((a, b) => b.amp - a.amp);
-   console.log(fourierT);
-   start = true;
-   setNewColor();
+    createCanvas(800, 600);
+    frameRate(120);
+    const skip = 8;
+    for (let i = 0; i < drawing.length; i += skip) {
+        const c = new Complex(drawing[i].x, drawing[i].y);
+        logoPath.push(c);
+    }
+    console.log(logoPath);
+    fourierT = dft(logoPath);
+    fourierT.sort((a, b) => b.amp - a.amp);
+    console.log(fourierT);
+    start = true;
+    setNewColor();
 }
 
 function loadFile(file) {
@@ -103,7 +108,6 @@ function draw() {
     }
 }
 
-function setNewColor() {
+function setNewColor() {   
     lineColor = color(0,255,255);
-    //lineColor = color(random(0, 255), random(0, 255), random(0, 255));
 }
