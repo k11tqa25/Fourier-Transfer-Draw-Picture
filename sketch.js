@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
 let c;
-let file = "";
 let time = 0;
 let startOverCount = 0;
 let logoPath = [];
@@ -10,27 +9,14 @@ let x = [];
 let start = false;
 let lineColor;
 
-function preload() {
-    file = loadStrings('https://k11tqa25.github.io/Fourier-Transfer-Draw-Picture/logo.txt');
-}
-
 function setup() {
     c = createCanvas(600, 400);
     frameRate(120);
     background(100);
-    //c.mouseOver(highlight);
-    //c.mouseOut(unhighlight);
-    //c.drop(loadFile); 
-    file = file + '';
-    console.log(file);
-    let lines = split(file, ',,');
-    let skip = 8;
-    for (let i = 0; i < lines.length - 1; i += skip) {
-        if (lines[i].indexOf(":") == -1) continue;
-        logoPath.push(new Complex(
-            parseFloat(lines[i].split(',')[0].replace("{", "").replace("}", "").split(":")[1]),
-            parseFloat(lines[i].split(',')[1].replace("{", "").replace("}", "").split(":")[1])));
-    }
+      for (let i = 0; i < drawing.length; i += skip) {
+        x.push(drawing[i].x);
+        y.push(drawing[i].y);
+      }
     console.log(logoPath);
     fourierT = dft(logoPath);
     console.log(fourierT);
