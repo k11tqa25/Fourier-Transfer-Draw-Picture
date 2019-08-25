@@ -1,6 +1,4 @@
 /*jshint esversion: 6 */
-let c;
-let file = "";
 let time = 0;
 let startOverCount = 0;
 let logoPath = [];
@@ -9,10 +7,6 @@ let fourierT;
 let x = [];
 let start = false;
 let lineColor;
-
-function preload() {
-    file = loadStrings('./logo.txt');
-}
 
 function setup() {
     createCanvas(800, 600);
