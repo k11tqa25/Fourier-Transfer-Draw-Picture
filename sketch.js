@@ -14,7 +14,8 @@ function setup() {
     var elt = document.getElementById('header');
     c.parent(elt);
     centerCanvas();
-    frameRate(120);
+    c.style('position', 'fixed');
+    c.style('top','0');
     const skip = 8;
     for (let i = 0; i < drawing.length; i += skip) {
         const c = new Complex(drawing[i].x, drawing[i].y);
