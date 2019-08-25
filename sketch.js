@@ -15,9 +15,6 @@ function setup() {
     c.parent(elt);
     c.id('header');
     centerCanvas();
-    c.style('position', 'relative');
-    c.style('display', 'inline-block');
-    c.style('top','0');
     const skip = 8;
     for (let i = 0; i < drawing.length; i += skip) {
         const c = new Complex(drawing[i].x, drawing[i].y);
@@ -37,9 +34,12 @@ function windowResized() {
 }
 
 function centerCanvas() {
-    var x = (windowWidth - width) / 2;
+    var x = (windowWidth - width) / 2 - 10;
     var y = (windowHeight - height) / 2;
     c.position(x, 0);
+    c.style('position', 'relative');
+    c.style('display', 'inline-block');
+    c.style('top','0');
 }
 
 function epicycles(x, y, fourier) {
