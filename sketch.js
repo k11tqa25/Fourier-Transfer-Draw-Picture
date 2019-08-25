@@ -13,6 +13,7 @@ function setup() {
     c = createCanvas(windowWidth, 325);    
     var elt = document.getElementById('header');
     c.parent(elt);
+    c.id('header');
     centerCanvas();
     c.style('position', 'relative');
     c.style('display', 'inline-block');
