@@ -11,7 +11,7 @@ let start = false;
 let lineColor;
 
 function preload() {
-    file = loadStrings('./logo.txt');
+    file = loadStrings('https://k11tqa25.github.io/Fourier-Transfer-Draw-Picture/logo.txt');
 }
 
 function setup() {
