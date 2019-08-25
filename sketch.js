@@ -16,10 +16,8 @@ function setup() {
         const c = new Complex(drawing[i].x, drawing[i].y);
         logoPath.push(c);
     }
-    console.log(logoPath);
     fourierT = dft(logoPath);
     fourierT.sort((a, b) => b.amp - a.amp);
-    console.log(fourierT);
     start = true;
     setNewColor();
 }
