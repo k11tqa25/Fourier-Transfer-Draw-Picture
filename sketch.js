@@ -11,7 +11,6 @@ let lineColor;
 function setup() {
    createCanvas(800, 600);
    frameRate(120);
-   background(255);
    const skip = 8;
    for (let i = 0; i < drawing.length; i += skip) {
      const c = new Complex(drawing[i].x, drawing[i].y);
@@ -84,7 +83,7 @@ function draw() {
     if (!start) {
         return;
     }
-    background(0);
+    background(255);
     let v = epicycles(width / 2, height / 2, fourierT);
     path.unshift(v);
 
