@@ -11,7 +11,7 @@ let lineColor;
 function setup() {
    createCanvas(800, 600);
    frameRate(120);
-   background(100);
+   background(255);
    const skip = 8;
    for (let i = 0; i < drawing.length; i += skip) {
      const c = new Complex(drawing[i].x, drawing[i].y);
@@ -69,10 +69,10 @@ function epicycles(x, y, fourier) {
         x += radius * cos(freq * time + phase);
         y += radius * sin(freq * time + phase);
 
-        stroke(255, 50);
+        stroke(0, 50);
         noFill();
         ellipse(prex, prey, radius * 2);
-        stroke(255, 100);
+        stroke(0, 100);
         line(prex, prey, x, y);
     }
     return createVector(x, y);
@@ -104,5 +104,6 @@ function draw() {
 }
 
 function setNewColor() {
-    lineColor = color(random(0, 255), random(0, 255), random(0, 255));
+    lineColor = color(0,255,255);
+    //lineColor = color(random(0, 255), random(0, 255), random(0, 255));
 }
