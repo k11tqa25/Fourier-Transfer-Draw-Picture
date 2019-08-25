@@ -24,39 +24,6 @@ function setup() {
     setNewColor();
 }
 
-function loadFile(file) {
-    createP("using file: " + file.name);
-    let lines = split(file.data, ',');
-    logoPath = [];
-    start = false;
-    let skip = 0;
-    if (lines.length >= 5000) skip = 16;
-    else if (lines.length >= 3000) skip = 10;
-    else if (lines.length >= 1000) skip = 6;
-    for (let i = 0; i < lines.length; i += skip) {
-        if (lines[i].indexOf(":") == -1) continue;
-        logoPath.push(new Complex(
-            parseFloat(lines[i].replace("{", "").replace("}", "").split(":")[1].trim()),
-            parseFloat(lines[i + 1].replace("{", "").replace("}", "").split(":")[1].trim())));
-    }
-
-    if (logoPath.length > 0) {
-        var dropZone = select('#dropzone');
-        dropZone.remove();
-        fourierT = dft(logoPath);
-        start = true;
-    }
-}
-
-
-function highlight() {
-    background(150);
-}
-
-function unhighlight() {
-    background(100);
-}
-
 function epicycles(x, y, fourier) {
 
     for (let i = 0; i < fourier.length; i++) {
