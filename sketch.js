@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+let c;
 let time = 0;
 let startOverCount = 0;
 let logoPath = [];
@@ -9,7 +10,9 @@ let start = false;
 let lineColor;
 
 function setup() {
-    createCanvas(800, 600);
+    c = createCanvas(windowWidth, 500);
+    c.parent("header-top");
+    centerCanvas();
     frameRate(120);
     const skip = 8;
     for (let i = 0; i < drawing.length; i += skip) {
@@ -20,6 +23,16 @@ function setup() {
     fourierT.sort((a, b) => b.amp - a.amp);
     start = true;
     setNewColor();
+}
+
+function windowResized() {
+    centerCanvas();
+}
+
+function centerCanvas() {
+    var x = (windowWidth - width) / 2;
+    var y = (windowHeight - height) / 2;
+    c.position(x, y);
 }
 
 function epicycles(x, y, fourier) {
