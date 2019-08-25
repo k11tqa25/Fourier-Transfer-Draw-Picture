@@ -15,10 +15,12 @@ function setup() {
    const skip = 8;
    for (let i = 0; i < drawing.length; i += skip) {
      const c = new Complex(drawing[i].x, drawing[i].y);
-     x.push(c);
+     logoPath.push(c);
    }
-   fourierT = dft(x);
+   fourierT = dft(logoPath);
    fourierT.sort((a, b) => b.amp - a.amp);
+   start = true;
+   setNewColor();
 }
 
 function loadFile(file) {
