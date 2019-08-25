@@ -10,7 +10,7 @@ let start = false;
 let lineColor;
 
 function setup() {
-    c = createCanvas(windowWidth, 500);    
+    c = createCanvas(windowWidth, 325);    
     var elt = document.getElementById('header');
     c.parent(elt);
     centerCanvas();
