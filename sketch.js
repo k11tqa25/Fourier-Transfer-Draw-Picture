@@ -14,7 +14,8 @@ function setup() {
     var elt = document.getElementById('header');
     c.parent(elt);
     centerCanvas();
-    c.style('position', 'fixed');
+    c.style('position', 'relative');
+    c.style('display', 'inline-block');
     c.style('top','0');
     const skip = 8;
     for (let i = 0; i < drawing.length; i += skip) {
