@@ -1,5 +1,4 @@
 /*jshint esversion: 6 */
-let c;
 let time = 0;
 let startOverCount = 0;
 let logoPath = [];
@@ -10,19 +9,16 @@ let start = false;
 let lineColor;
 
 function setup() {
-    c = createCanvas(600, 400);
-    frameRate(120);
-    background(100);
-    let skip = 8;
-    for (let i = 0; i < drawing.length; i += skip) {
-        const c = new Complex(drawing[i].x, drawing[i].y);
-        x.push(c);
-    }
-    console.log(logoPath);
-    fourierT = dft(logoPath);
-    console.log(fourierT);
-    start = true;
-    setNewColor();
+   createCanvas(800, 600);
+   frameRate(120);
+   background(100);
+   const skip = 8;
+   for (let i = 0; i < drawing.length; i += skip) {
+     const c = new Complex(drawing[i].x, drawing[i].y);
+     x.push(c);
+   }
+   fourierT = dft(x);
+   fourierT.sort((a, b) => b.amp - a.amp);
 }
 
 function loadFile(file) {
