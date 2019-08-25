@@ -13,6 +13,7 @@ function setup() {
     c = createCanvas(600, 400);
     frameRate(120);
     background(100);
+    let skip = 8;
     for (let i = 0; i < drawing.length; i += skip) {
         const c = new Complex(drawing[i].x, drawing[i].y);
         x.push(c);
